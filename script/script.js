@@ -9,15 +9,9 @@ function converterMoeda() {
 	const convertidoEuro = (valorReal / valorEuro).toFixed(2);
 	const convertidoBitcoin = (valorReal / valorBitcoin).toFixed(6);
 
-	document.getElementById(
-		"resultado__texto--dolar"
-	).innerHTML = `$ ${convertidoDolar}`;
-	document.getElementById(
-		"resultado__texto--euro"
-	).innerHTML = `€ ${convertidoEuro}`;
-	document.getElementById(
-		"resultado__texto--bitcoin"
-	).innerHTML = `BTC ${convertidoBitcoin}`;
+	document.getElementById("resultado__texto--dolar").innerHTML = `$ ${convertidoDolar}`;
+	document.getElementById("resultado__texto--euro").innerHTML = `€ ${convertidoEuro}`;
+	document.getElementById("resultado__texto--bitcoin"	).innerHTML = `BTC ${convertidoBitcoin}`;
 }
 
 function obterCotacao() {
@@ -38,11 +32,9 @@ function obterCotacao() {
 				txtEuro.innerHTML = `R$ ${parseFloat(json[obj].ask).toFixed(2)}`;
 			}
 			else if (json[obj].code == "BTC") {
-				txtBitcoin.innerHTML = `R$ ${parseFloat(json[obj].ask).toFixed(2)*1000}`;
+				txtBitcoin.innerHTML = `R$ ${(parseFloat(json[obj].ask)*1000).toFixed(2)}`;
 			}
 		}
-
-		console.log(json)
 	};
 
 }
