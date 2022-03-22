@@ -11,22 +11,25 @@
 	</head>
 
 	<body>
-		<h1 class="titulo">Conversor de Moedas</h1>
+		<h1 class="titulo titulo--principal">Conversor de Moedas</h1>
 
 		<main>
-			<form class="formulario">
-				<label><input type="radio" name="moeda" class="inputRadio" checked> Real</label>
-				<label><input type="radio" name="moeda" class="inputRadio"> Dólar</label>
-				<label><input type="radio" name="moeda" class="inputRadio"> Euro</label>
-				<label><input type="radio" name="moeda" class="inputRadio"> Bitcoin</label>
+			<form id="formulario">
+				<fieldset class="formulario__fieldset-radio">
+					<label class="texto"><input type="radio" name="moeda" value="BRL" checked> Real</label>
+					<label class="texto"><input type="radio" name="moeda" value="USD"> Dólar</label>
+					<label class="texto"><input type="radio" name="moeda" value="EUR"> Euro</label>
+					<!-- <label class="texto"><input type="radio" name="moeda" value="BTC"> Bitcoin</label> -->
+				</fieldset>
 				
+				<div class="formulario__input">
+					<input id="valor" type="number" class="formulario__valor">
 
-				<input id="valor" type="number" class="input-numero">
-
-				<button class="botao" onclick="converterValor()">Converter</button>
+					<button id="formulario__botao" class="formulario__botao">Converter</button>
+				</div>
 			</form>
 
-			<section class="resultado">
+			<section id="resultado" class="resultado">
 				<h2 class="titulo">Resultados</h2>
 
 				<div class="resultado__container">
@@ -52,21 +55,25 @@
 				</div>
 			</section>
 
-			<section class="cotacao">
+			<section id="cotacao" class="cotacao">
 				<h2 class="titulo">Cotação</h2>
 
 				<ul class="cotacao__lista">
 					<li class="cotacao__item texto">
+						<p>Real:</p>
+						<p id="cotacao__real">0,00</p>
+					</li>
+					<li class="cotacao__item texto">
 						<p>Dólar:</p>
-						<p id="cotacao__dolar">R$ 0,00</p>
+						<p id="cotacao__dolar">0,00</p>
 					</li>
 					<li class="cotacao__item texto">
 						<p>Euro:</p>
-						<p id="cotacao__euro">R$ 0,00</p>
+						<p id="cotacao__euro">0,00</p>
 					</li>
 					<li class="cotacao__item texto">
 						<p>Bitcoin:</p>
-						<p id="cotacao__bitcoin">R$ 0,00</p>
+						<p id="cotacao__bitcoin">0,00</p>
 					</li>
 				</ul>
 			</section>

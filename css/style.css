@@ -21,6 +21,10 @@ body {
     font-weight: bold;
 }
 
+.titulo--principal {
+    margin-top: 1.5em;
+}
+
 .subtitulo {
     color: #FFFFFF;
     text-align: center;
@@ -33,7 +37,6 @@ body {
 .texto {
     color: #FFFFFF;
     font-size: 1.6rem;
-    font-weight: 700;
 }
 
 /* PRINCIPAL */
@@ -43,34 +46,64 @@ main {
     width: 940px;
     padding: 2em;
     margin: auto;
-    grid-template-columns: .5fr 1fr;
+    gap: 16px;
+    grid-template-areas: 
+        "formulario formulario cotacao" 
+        "resultado resultado cotacao";
+    grid-template-columns: 1fr .5fr .8fr;
     box-sizing: border-box;
 }
 
 /* FORMULÁRIO */
 
-.formulario {
-    display: grid;
+#formulario {
     padding: 2em;
-    grid-template-columns: 1fr 1fr;
+    grid-area: formulario;
     background: linear-gradient(45deg, #ffffff90, #76767690);
     text-align: center;
     font-size: 1.6rem;
     border-radius: 15px;
+    box-sizing: border-box;
 }
 
-.input-numero {
-    grid-column: span 2;
+.formulario__fieldset-radio {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.botao {
-    grid-column: span 2;
+.formulario__label .texto {
+    font-size: 2em;
+}
+
+.formulario__input {
+    display: flex;
+    margin-top: 1em;
+}
+
+.formulario__valor {
+    width: 70%;
+    padding: .75em;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    box-shadow: 0 0 5px #000000;
+    box-sizing: border-box;
+}
+
+.formulario__botao {
+    width: 30%;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 0 5px #000000;
+    cursor: pointer;
 }
 
 /* COTAÇÃO */
 
-.cotacao {
+#cotacao {
     padding: 2em;
+    grid-area: cotacao;
     background: linear-gradient(45deg, #ffffff90, #76767690);
     text-align: center;
     font-size: 1.6rem;
@@ -97,12 +130,12 @@ main {
 
 /* RESULTADOS */
 
-.resultado {
+#resultado {
     padding: 2em;
+    grid-area: resultado;
     background: linear-gradient(45deg, #ffffff90, #76767690);
     border-radius: 15px;
     font-size: 1.6rem;
-    grid-row: span 2;
 }
 
 .resultado__container {
