@@ -1,57 +1,23 @@
-h2 {
-	margin: 0;
-	font-size: 1rem;
-	font-weight: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
 
 body {
-	font-family: "Roboto Mono", monospace;
 	min-height: 100%;
-	background-image: url("https://www.investopedia.com/thmb/spfLaJj0LkGnU3LwR10SWvJPkEo=/2600x1294/filters:fill(auto,1)/GettyImages-1153657433_2600-573e917e27f9442eb87ac10f45ce43ea.jpg");
-}
-
-.container {
 	text-align: center;
-	padding: 20px;
-	height: 100vh;
-}
-
-.page-title {
-	color: #ffffff;
-	margin: 0 0 5px;
-}
-
-.page-subtitle {
-	color: #ffffff;
-	margin-top: 5px;
-}
-
-.page-logo {
-	width: 200px;
-}
-
-.alura-logo {
-	width: 40px;
-	position: absolute;
-	top: 10px;
-	right: 10px;
+	font-family: 'Mukta', sans-serif;
+	background-image: url("https://www.investopedia.com/thmb/spfLaJj0LkGnU3LwR10SWvJPkEo=/2600x1294/filters:fill(auto,1)/GettyImages-1153657433_2600-573e917e27f9442eb87ac10f45ce43ea.jpg");
 }
 
 /*  */
 
-.conversor__box {
-	width: 940px;
-	padding: 40px 20px;
-	margin: 50px auto 0;
-	background: linear-gradient(45deg, #ffffff90, #76767690);
-	border-radius: 15px;
+main {
+	max-width: 940px;
+	margin: auto;
+	box-sizing: border-box;
 }
 
-.flex-container {
-	display: flex;
-}
+/*  */
 
-.titulo--padrao {
+.titulo {
 	margin-bottom: 1.5em;
 	color: #fff;
 	text-transform: uppercase;
@@ -60,52 +26,107 @@ body {
 	font-weight: bold;
 }
 
-.formulario {
-	width: 30vw;
-	margin: 0 auto;
-	border-radius: 10px;
-	box-shadow: 0 0 15px #000;
+.titulo--principal {
+	margin-top: 1.5em;
 }
 
-input,
-button {
-	border: none;
-	padding: 1em;
-	font-weight: bold;
-	box-sizing: border-box;
-}
-
-input {
-	width: 70%;
-	font-size: 0.9em;
-	border-radius: 10px 0 0 10px;
-	outline: none;
-}
-
-button {
-	width: 30%;
-	text-transform: uppercase;
-	border-radius: 0 10px 10px 0;
-}
-
-.cotacao {
-	margin-top: 50px;
-	justify-content: space-around;
-}
-
-.cotacao__caixa {
-	width: 27%;
-	background-color: #1d1e22;
-	border-radius: 10px;
-}
-
-.cotacao__subtitulo {
+.subtitulo {
+	margin-bottom: 1.5em;
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 1.4em;
 }
 
-.cotacao__texto {
+/*  */
+
+.container {
+	display: grid;
+	margin: auto;
+}
+
+.input {
+	width: 70%;
+	padding: 1em;
+	border: none;
+	border-radius: 10px 0 0 10px;
+	font-size: 0.9em;
+	font-weight: bold;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.botao {
+	width: 30%;
+	padding: 1em;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 0 10px 10px 0;
+	font-weight: bold;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+/* PRINCIPAL */
+
+.principal__container {
+	grid-template-columns: 1fr 0.5fr;
+	gap: 16px;
+}
+
+/* FORMULARIO */
+
+.formulario__container {
+	display: flex;
+}
+
+/* COTAÇÃO */
+
+.cotacao {
+	padding: 2em;
+	background: linear-gradient(45deg, #ffffff90, #76767690);
+	border-radius: 15px;
+	grid-row: span 2;
+}
+
+.cotacao__lista {
+	display: flex;
+	height: 78%;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.cotacao__item {
+	display: flex;
+	padding: 1em;
+	background-color: #1d1e22;
+	border-radius: 10px;
+	color: #fff;
+	font-size: 1em;
+	justify-content: space-between;
+}
+
+/* RESULTADO */
+
+.resultado {
+	padding: 2em;
+	background: linear-gradient(45deg, #ffffff90, #76767690);
+	border-radius: 15px;
+	box-sizing: border-box;
+}
+
+.resultado__container {
+	width: 90%;
+	grid-template-columns: 1fr 1fr;
+	gap: 32px;
+}
+
+.resultado__caixa {
+	padding: 2em 0;
+	background-color: #1d1e22;
+	border-radius: 10px;
+}
+
+.resultado__texto {
 	display: inline-block;
 	padding: 5px;
 	color: #fff;

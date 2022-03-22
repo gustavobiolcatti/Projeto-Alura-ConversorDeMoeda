@@ -6,67 +6,72 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Conversor de Moeda</title>
 
+		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<div class="container">
-			<h1 class="page-title">
-				Conversor de moedas
-			</h1>
-			<p class="page-subtitle">
-				Descubra os valores em dolar e outros!
-			</p>
-			<img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-conversor-de-moedas.svg" class="page-logo" alt="">
-		
-			<!-- Conversor de moeda -->
-			<section class="conversor__box">
-				<h2 class="titulo--padrao">Conversor de moedas</h2>
-		
-				<div class="formulario flex-container">
-					<input id="valor" type="number" placeholder="Valor em real (R$)">
-					<button type="submit" onclick="obterCotacao()">Converter</button>
+		<header>
+			<h1 class="titulo titulo--principal">Conversor de Moedas</h1>
+		</header>
+
+		<main class="principal__container container">
+
+			<section class="formulario">
+				<div class="formulario__container">
+					<input id="valor" class="input" type="number" placeholder="Digite o valor">
+					<button type="submit" class="botao" onclick="obterCotacao()">Converter</button>
 				</div>
+			</section>
+			
+			<section class="cotacao">
+				<h2 class="titulo">Cotação</h2>
+
+				<ul class="cotacao__lista">
+					<li class="cotacao__item">
+						<p>Real: </p>
+						<p id="cotReal"></p>
+					</li>
+					<li class="cotacao__item">
+						<p>Dólar: </p>
+						<p id="cotDolar"></p>
+					</li>
+					<li class="cotacao__item">
+						<p>Euro: </p>
+						<p id="cotEuro"></p>
+					</li>
+					<li class="cotacao__item">
+						<p>Bitcoin: </p>
+						<p id="cotBitcoin"></p>
+					</li>
+				</ul>
+			</section>
+
+			<section class="resultado">
+				<h2 class="titulo">resultado</h2>
 		
-				<div class="cotacao flex-container">
-					<article class="cotacao__caixa">
-						<h3 class="cotacao__subtitulo">Dólar (usd)</h3>
-						<p id="cotacao__texto--dolar" class="cotacao__texto"></p>
+				<div class="resultado__container container">
+					<article class="resultado__caixa">
+						<h3 class="subtitulo">Dólar (usd)</h3>
+						<p id="resultado__texto--dolar" class="resultado__texto"></p>
 					</article>
 		
-					<article class="cotacao__caixa">
-						<h3 class="cotacao__subtitulo">Euro (eur)</h3>
-						<p id="cotacao__texto--euro" class="cotacao__texto"></p>
+					<article class="resultado__caixa">
+						<h3 class="subtitulo">Euro (eur)</h3>
+						<p id="resultado__texto--euro" class="resultado__texto"></p>
 					</article>
 		
-					<article class="cotacao__caixa">
-						<h3 class="cotacao__subtitulo">Bitcoin (btc)</h3>
-						<p id="cotacao__texto--bitcoin" class="cotacao__texto"></p>
+					<article class="resultado__caixa">
+						<h3 class="subtitulo">Bitcoin (btc)</h3>
+						<p id="resultado__texto--bitcoin" class="resultado__texto"></p>
+					</article>
+
+					<article class="resultado__caixa">
+						<h3 class="subtitulo">Real (brl)</h3>
+						<p id="resultado__texto--real" class="resultado__texto"></p>
 					</article>
 				</div>
 			</section>
-		
-			<!-- Conversor de temperatura
-			<section class="conversor__box">
-				<h2 class="titulo--padrao">Conversor de temperatura</h2>
-		
-				<div class="formulario flex-container">
-					<input id="tempC" type="number" placeholder="Valor em Celsius (ºC)">
-					<button type="submit" onclick="converterTemperatura()">Converter</button>
-				</div>
-		
-				<div class="cotacao cotacao--temperatura flex-container">
-					<article class="cotacao__caixa">
-						<h3 class="cotacao__subtitulo">Kelvin (ºK)</h3>
-						<p id="cotacao__texto--kelvin" class="cotacao__texto"></p>
-					</article>
-		
-					<article class="cotacao__caixa">
-						<h3 class="cotacao__subtitulo">Fahrenheit (ºF)</h3>
-						<p id="cotacao__texto--fahrenheit" class="cotacao__texto"></p>
-					</article>
-				</div>
-			</section>-->
-		</div>
+		</main>
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="script/script.js"></script>

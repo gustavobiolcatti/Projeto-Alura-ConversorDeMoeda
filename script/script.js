@@ -1,40 +1,52 @@
-function converterMoeda() {
+function converterMoeda(cotDolar, cotEuro, cotBitcoin, cotReal) {
 	const valorReal = parseFloat(document.getElementById("valor").value);
 
-	const valorDolar = 5.0;
-	const valorEuro = 5.5;
-	const valorBitcoin = 195482.0;
+	const convertidoReal = (valorReal / cotReal).toFixed(2);
+	const convertidoDolar = (valorReal / cotDolar).toFixed(2);
+	const convertidoEuro = (valorReal / cotEuro).toFixed(2);
+	const convertidoBitcoin = (valorReal / cotBitcoin).toFixed(6);
 
-	const convertidoDolar = (valorReal / valorDolar).toFixed(2);
-	const convertidoEuro = (valorReal / valorEuro).toFixed(2);
-	const convertidoBitcoin = (valorReal / valorBitcoin).toFixed(6);
-
+	document.getElementById("resultado__texto--real").innerHTML = `R$ ${convertidoReal}`;
 	document.getElementById("resultado__texto--dolar").innerHTML = `$ ${convertidoDolar}`;
 	document.getElementById("resultado__texto--euro").innerHTML = `€ ${convertidoEuro}`;
 	document.getElementById("resultado__texto--bitcoin"	).innerHTML = `BTC ${convertidoBitcoin}`;
 }
 
 function obterCotacao() {
-	const txtDolar = document.getElementById("cotacao__texto--dolar");
-	const txtEuro = document.getElementById("cotacao__texto--euro");
-	const txtBitcoin = document.getElementById("cotacao__texto--bitcoin");
+	const campoReal = document.getElementById("cotReal");
+	const campoDolar = document.getElementById("cotDolar");
+	const campoEuro = document.getElementById("cotEuro");
+	const campoBitcoin = document.getElementById("cotBitcoin");
+
+	let cotReal = 1;
+	let cotDolar;
+	let cotEuro;
+	let cotBitcoin;
 	
 	fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL")
 		.then(resposta => resposta.json())
-		.then(json => imprimeResult(json));
+		.then(json => imprimirResultado(json));
 
-	function imprimeResult(json) {
+	function imprimirResultado(json) {
+
+		campoReal.innerHTML = `R$ ${cotReal}`;
+
 		for (let obj in json){
 			if (json[obj].code == "USD") {
-				txtDolar.innerHTML = `R$ ${parseFloat(json[obj].ask).toFixed(2)}`;
+				cotDolar = parseFloat(json[obj].ask).toFixed(2);
+				campoDolar.innerHTML = `R$ ${cotDolar}`;
 			}
 			else if (json[obj].code == "EUR") {
-				txtEuro.innerHTML = `R$ ${parseFloat(json[obj].ask).toFixed(2)}`;
+				cotEuro = parseFloat(json[obj].ask).toFixed(2);
+				campoEuro.innerHTML = `R$ ${cotEuro}`;
 			}
 			else if (json[obj].code == "BTC") {
-				txtBitcoin.innerHTML = `R$ ${(parseFloat(json[obj].ask)*1000).toFixed(2)}`;
+				cotBitcoin = (parseFloat(json[obj].ask)*1000).toFixed(2);
+				campoBitcoin.innerHTML = `R$ ${cotBitcoin}`;
 			}
 		}
+
+		converterMoeda(cotDolar, cotEuro, cotBitcoin, cotReal);
 	};
 
 }
