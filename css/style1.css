@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+
+body {
+	min-height: 100%;
+	text-align: center;
+	font-family: 'Mukta', sans-serif;
+	background-image: url("https://www.investopedia.com/thmb/spfLaJj0LkGnU3LwR10SWvJPkEo=/2600x1294/filters:fill(auto,1)/GettyImages-1153657433_2600-573e917e27f9442eb87ac10f45ce43ea.jpg");
+}
+
+/*  */
+
+main {
+	max-width: 940px;
+	margin: auto;
+	box-sizing: border-box;
+}
+
+/*  */
+
+.titulo {
+	margin-bottom: 1.5em;
+	color: #fff;
+	text-transform: uppercase;
+	text-shadow: 0 0 5px #000;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.titulo--principal {
+	margin-top: 1.5em;
+}
+
+.subtitulo {
+	margin-bottom: 1.5em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.4em;
+}
+
+/*  */
+
+.container {
+	display: grid;
+	margin: auto;
+}
+
+.input {
+	width: 70%;
+	padding: 1em;
+	border: none;
+	border-radius: 10px 0 0 10px;
+	font-size: 0.9em;
+	font-weight: bold;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.botao {
+	width: 30%;
+	padding: 1em;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 0 10px 10px 0;
+	font-weight: bold;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+/* PRINCIPAL */
+
+.principal__container {
+	grid-template-columns: 1fr 0.5fr;
+	gap: 16px;
+}
+
+/* FORMULARIO */
+
+.formulario__container {
+	display: flex;
+}
+
+/* COTAÇÃO */
+
+.cotacao {
+	padding: 2em;
+	background: linear-gradient(45deg, #ffffff90, #76767690);
+	border-radius: 15px;
+	grid-row: span 2;
+}
+
+.cotacao__lista {
+	display: flex;
+	height: 78%;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.cotacao__item {
+	display: flex;
+	padding: 1em;
+	background-color: #1d1e22;
+	border-radius: 10px;
+	color: #fff;
+	font-size: 1em;
+	justify-content: space-between;
+}
+
+/* RESULTADO */
+
+.resultado {
+	padding: 2em;
+	background: linear-gradient(45deg, #ffffff90, #76767690);
+	border-radius: 15px;
+	box-sizing: border-box;
+}
+
+.resultado__container {
+	width: 90%;
+	grid-template-columns: 1fr 1fr;
+	gap: 32px;
+}
+
+.resultado__caixa {
+	padding: 2em 0;
+	background-color: #1d1e22;
+	border-radius: 10px;
+}
+
+.resultado__texto {
+	display: inline-block;
+	padding: 5px;
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	font-size: 1.2em;
+	font-weight: bold;
+}

@@ -9,12 +9,70 @@
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
-	<body>
-		<header>
-			<h1 class="titulo titulo--principal">Conversor de Moedas</h1>
-		</header>
 
-		<main class="principal__container container">
+	<body>
+		<h1 class="titulo">Conversor de Moedas</h1>
+
+		<main>
+			<form class="formulario">
+				<label><input type="radio" name="moeda" class="inputRadio" checked> Real</label>
+				<label><input type="radio" name="moeda" class="inputRadio"> Dólar</label>
+				<label><input type="radio" name="moeda" class="inputRadio"> Euro</label>
+				<label><input type="radio" name="moeda" class="inputRadio"> Bitcoin</label>
+				
+
+				<input id="valor" type="number" class="input-numero">
+
+				<button class="botao" onclick="converterValor()">Converter</button>
+			</form>
+
+			<section class="resultado">
+				<h2 class="titulo">Resultados</h2>
+
+				<div class="resultado__container">
+					<article class="resultado__box">
+						<h3 class="subtitulo">Real (brl)</h3>
+						<p id="resultado__real" class="resultado__texto texto">-</p>
+					</article>
+
+					<article class="resultado__box">
+						<h3 class="subtitulo">Dólar (usd)</h3>
+						<p id="resultado__dolar" class="resultado__texto texto">-</p>
+					</article>
+
+					<article class="resultado__box">
+						<h3 class="subtitulo">Euro (eur)</h3>
+						<p id="resultado__euro" class="resultado__texto texto">-</p>
+					</article>
+
+					<article class="resultado__box">
+						<h3 class="subtitulo">Bitcoin (btc)</h3>
+						<p id="resultado__bitcoin" class="resultado__texto texto">-</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="cotacao">
+				<h2 class="titulo">Cotação</h2>
+
+				<ul class="cotacao__lista">
+					<li class="cotacao__item texto">
+						<p>Dólar:</p>
+						<p id="cotacao__dolar">R$ 0,00</p>
+					</li>
+					<li class="cotacao__item texto">
+						<p>Euro:</p>
+						<p id="cotacao__euro">R$ 0,00</p>
+					</li>
+					<li class="cotacao__item texto">
+						<p>Bitcoin:</p>
+						<p id="cotacao__bitcoin">R$ 0,00</p>
+					</li>
+				</ul>
+			</section>
+		</main>
+
+		<!-- <main class="principal__container container">
 
 			<section class="formulario">
 				<div class="formulario__container">
@@ -71,9 +129,8 @@
 					</article>
 				</div>
 			</section>
-		</main>
+		</main> -->
 
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="script/script.js"></script>
 	</body>
 </html>
