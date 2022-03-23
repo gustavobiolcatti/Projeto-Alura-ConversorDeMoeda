@@ -87,6 +87,7 @@ main {
     border: none;
     border-radius: 5px 0 0 5px;
     outline: none;
+    font-weight: bold;
     box-shadow: 0 0 5px #000000;
     box-sizing: border-box;
 }
@@ -95,6 +96,7 @@ main {
     width: 30%;
     border: none;
     border-radius: 0 5px 5px 0;
+    font-weight: bold;
     box-shadow: 0 0 5px #000000;
     cursor: pointer;
 }

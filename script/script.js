@@ -13,7 +13,6 @@ function converterMoeda(cotReal, cotDolar, cotEuro, cotBitcoin) {
 }
 
 function obterCotacao(opcao) {
-	const moedas = ["USD", "EUR", "BRL", "BTC"];
 	const simbolo = {"USD": "$", "EUR": "€", "BRL": "R$", "BTC": "₿"};
 
 	let cotReal = 1;
@@ -23,11 +22,9 @@ function obterCotacao(opcao) {
 
 	let stringCotacao = "";
 
-	moedas.forEach((value, index) => {
-		if (opcao != value) {
-			stringCotacao += `${moedas[index]}-${opcao}`
-		}
-	});
+	for (let i in simbolo) {
+		if (opcao != i) stringCotacao += `${i}-${opcao}`;
+	}
 
 	stringCotacao = stringCotacao.replace(/(.{7})?(.{7})?(.{7})/, "$1,$2,$3");
 
@@ -37,18 +34,13 @@ function obterCotacao(opcao) {
 		
 		function exibirCotacao(json) {
 			for (let obj in json){
-				if (json[obj].code == "BRL") {
-					cotReal = parseFloat(json[obj].ask).toFixed(2);
-				}
-				else if (json[obj].code == "USD") {
-					cotDolar = parseFloat(json[obj].ask).toFixed(2);
-				}
-				else if (json[obj].code == "EUR") {
-					cotEuro = parseFloat(json[obj].ask).toFixed(2);
-				}
-				else if (json[obj].code == "BTC") {
-					cotBitcoin = (parseFloat(json[obj].ask)*1000).toFixed(2);
-				}
+				if (json[obj].code == "BRL") cotReal = parseFloat(json[obj].ask).toFixed(2);
+
+				else if (json[obj].code == "USD") cotDolar = parseFloat(json[obj].ask).toFixed(2);
+
+				else if (json[obj].code == "EUR") cotEuro = parseFloat(json[obj].ask).toFixed(2);
+
+				else if (json[obj].code == "BTC") cotBitcoin = (parseFloat(json[obj].ask)*1000).toFixed(2);
 			}
 
 			document.getElementById("cotacao__real").innerHTML = `${simbolo[opcao]} ${cotReal}`;
@@ -65,9 +57,7 @@ function obterMoedaSelecionada() {
 	let opcao;
 
 	campoMoeda.forEach((value, index) => {
-		if (campoMoeda[index].checked) {
-			opcao = campoMoeda[index].value;
-		};
+		if (campoMoeda[index].checked) opcao = campoMoeda[index].value;
 	});
 
 	return opcao;
